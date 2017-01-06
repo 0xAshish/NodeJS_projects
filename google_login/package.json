@@ -1,0 +1,14 @@
+{
+  "name": "google_login",
+  "version": "0.0.1",
+  "description": "just another login app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "passport-google": "^0.3.0"
+  }
+}

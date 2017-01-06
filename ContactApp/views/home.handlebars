@@ -1,0 +1,53 @@
+
+<div class="container">
+<center><br/><br/><br/>
+{{#if msg}}
+<h3>{{this.msg}}</h3>
+{{/if}}
+<div class="col-md-12">
+	<div class="col-md-8">
+<h1>Enter Your Details </h1>
+</div>
+<div class="col-xs-8">
+<form id="ragister_form" action="/user/ragister" method="get" enctype="multipart/form-data" >
+				<div class="">
+		<label for="first_name">First name:</label><br />
+		<input id="first_name" class="input" name="first_name" type="text" value=""  /><br />
+	</div><br/>
+		<div >
+		<label for="last_name">Last name:</label><br />
+		<input id="last_name" class="input" name="last_name" type="text" value=""  /><br />
+	</div><br/>
+		<div >
+		<label for="email">Your email:</label><br />
+		<input id="email" class="input" name="email" type="email" ></textarea><br />
+		</div><br/>
+			<div class="">
+        <label for="mobile">Mobile:</label><br />
+		<input id="mobile" class="input" name="mobile" type="text" ></textarea><br />
+	 </div><br/>
+	   	<div class="">
+	    <label for="password">password:</label><br />
+		<input id="password" class="input" name="password" type="password" ></textarea><br />
+       
+	</div><br/>
+
+	<input id="submit_button" type="submit" value="Ragister" />
+</form>	
+</div>
+<br/><br/><br/><br/>
+<div class="col-xs-8">
+<h3>Login</h3>
+<form id="login_form" action="/user/login" method="get" enctype="multipart/form-data">
+	<div class="">
+		<label for="email">Email:</label><br />
+		<input id="email" class="input" name="username" type="text" value="" /><br />
+	</div><br/>
+	<div class="">
+		<label for="password">Password:</label><br />
+		<input id="password" class="input" name="password" type="password" ></textarea><br />
+	</div><br/>
+	<input id="Login" type="submit" value="Login" />
+</form>	
+</div>
+</div>

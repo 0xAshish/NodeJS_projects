@@ -1,0 +1,22 @@
+  
+     <h4>Contacts</h3>
+     <h3>Delete by name</h3>
+     {{#if D.msg}}
+<h3>{{D.msg}}</h3>
+{{/if}}
+     <form action="/delete" method="get">
+     <input type='email' name='email' value="Example@xyz.com" >
+    <button type="submit">Delete</button>
+</form>
+
+     {{#each D.doc}}     
+<p>First Name : {{this.first_name}}</p>
+<p>Last Name : {{this.last_name}}</p>
+<p>Email : {{this.email}}</p></br>
+<form action="/delete" method="get">
+     <input type='hidden' name='email' value={{this.email}} >
+    <button type="submit">Delete</button>
+</form>
+{{/each}} 
+</br>
+<a href="/"><button>Home</button></a>

@@ -1,0 +1,55 @@
+ <div class="container"> 
+
+	     <h2>Add contact</h3>
+<div class="col-xs-8">
+     <form id="contact_form" action="/app/profile" method="get" enctype="multipart/form-data">
+	<div class="">
+		<label for="firstname">First name:</label><br />
+		<input id="firs_tname" class="input" name="first_name" type="text" value="" /><br />
+	</div><br/>
+	<div class="">
+		<label for="last_name">Last name:</label><br />
+		<input id="last_name" class="input" name="last_name" type="text" value=""  /><br />
+	</div><br/>
+	<div class="">
+		<label for="email">Your email:</label><br />
+		<input id="email" class="input" name="email" type="email" ></textarea><br />
+	</div><br/>
+    <div class="">
+		<label for="mobile">Mobile</label><br />
+		<input id="monile" class="input" name="mobile" type="text" ></textarea><br />
+	</div><br/>
+	<input id="submit_button" type="submit" value="Save Contact" />
+</form>
+</div>	<br/><br/><br/><br/>
+<br/><br/>
+<div class="col-xs-8">
+     <h4>Contacts</h3>
+	 </div >
+	<div class="col-xs-8">
+     <h3>Delete by name</h3>
+     {{#if D.msg}}
+<h3>{{D.msg}}</h3>
+{{/if}}
+     <form action="/app/delete" method="get">
+     <input type='email' name='email' placeholder="Example@xyz.com" >
+    <button type="submit">Delete</button>
+
+</form>
+
+     {{#each D.doc}}     
+<p>First Name : {{this.first_name}}</p>
+<p>Last Name : {{this.last_name}}</p>
+<p>Email : {{this.email}}</p>
+<p>Mobile : {{this.mobile}}</p>
+<form action="/app/delete" method="get">
+     <input type='hidden' name='email' value={{this.email}} >
+    <button type="submit">Delete</button>
+</form>
+{{/each}} 
+</div>
+<br/>
+<br/><br/><br/>
+<a href="/logout"><button>Logout</button></a>
+<br/>
+</div>
