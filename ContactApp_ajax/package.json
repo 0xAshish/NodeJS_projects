@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "Eric Ferraiuolo <eferraiuolo@gmail.com>",
+  "author": "Ashish rajpurohit <a4ashishrp@gmail.com>",
   "license": "BSD",
   "dependencies": {
     "express": "^4.7.2",
