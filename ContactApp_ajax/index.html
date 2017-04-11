@@ -6,90 +6,79 @@
     <title>Contacts</title>
     <link rel="stylesheet" href="/public/bootstrap.min.css">
     <link rel="stylesheet" href="/public/style.css">
-
-
 </head>
 
 <body>
     <div class="container" id="page" style="display: none;">
-<center><br/><br/><br/>
-    <div id="hide">
-        <div class="col-md-12">
-            <div class="col-md-8">
-                <h1>Enter Your Details </h1>
+        <center><br/><br/><br/>
+            <div id="hide">
+                <div class="col-md-12">
+                    <div class="col-md-8">
+                        <h1>Enter Your Details </h1>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="">
+                            <label for="first_name">First name:</label><br />
+                            <input id="first_name" class="input" name="first_name" type="text" value="" /><br />
+                        </div><br/>
+                        <div>
+                            <label for="last_name">Last name:</label><br />
+                            <input id="last_name" class="input" name="last_name" type="text" value="" /><br />
+                        </div><br/>
+                        <div>
+                            <label for="email">Your email:</label><br />
+                            <input id="email" class="input" name="email" type="email"></textarea><br />
+                        </div><br/>
+                        <div class="">
+                            <label for="mobile">Mobile:</label><br />
+                            <input id="mobile" class="input" name="mobile" type="text"></textarea><br />
+                        </div><br/>
+                        <div class="">
+                            <label for="password">password:</label><br />
+                            <input id="password" class="input" name="password" type="password"></textarea><br />
+                        </div><br/>
+                        <button id="ragister_">Ragister</button>
+                    </div>
+                    <br/><br/><br/><br/>
+                    <div class="col-xs-8">
+                        <h3>Login</h3>
+                        <div class="">
+                            <loginmsg></loginmsg>
+                            <label for="email">Email:</label><br />
+                            <input id="lemail" class="input" name="username" type="email" /><br />
+                        </div><br/>
+                        <div class="">
+                            <label for="password">Password:</label><br />
+                            <input id="lpassword" class="input" name="password" type="password"></textarea><br />
+                        </div><br/>
+                        <button id="login_">Login</button>
+                    </div>
+                </div>
             </div>
-
-            <div class="col-xs-8">
-
+            <div id="show">
+                <button id="logout">Logout</button><br/><br/>
                 <div class="">
-                    <label for="first_name">First name:</label><br />
-                    <input id="first_name" class="input" name="first_name" type="text" value="" /><br />
-                </div><br/>
-                <div>
-                    <label for="last_name">Last name:</label><br />
-                    <input id="last_name" class="input" name="last_name" type="text" value="" /><br />
-                </div><br/>
-                <div>
-                    <label for="email">Your email:</label><br />
-                    <input id="email" class="input" name="email" type="email"></textarea><br />
+                    <label for="addfirstname">First name:</label><br />
+                    <input id="con_first_name" class="input" name="first_name" type="text" value="" /><br />
                 </div><br/>
                 <div class="">
-                    <label for="mobile">Mobile:</label><br />
-                    <input id="mobile" class="input" name="mobile" type="text"></textarea><br />
+                    <label for="con_last_name">Last name:</label><br />
+                    <input id="con_last_name" class="input" name="last_name" type="text" value="" /><br />
                 </div><br/>
                 <div class="">
-                    <label for="password">password:</label><br />
-                    <input id="password" class="input" name="password" type="password"></textarea><br />
-
+                    <label for="con_email">Your email:</label><br />
+                    <input id="con_email" class="input" name="email" type="email"></textarea><br />
                 </div><br/>
-
-                <button id="ragister_">Ragister</button>
-
+                <div class="">
+                    <label for="con_mobile">Mobile</label><br />
+                    <input id="con_mobile" class="input" name="mobile" type="text"></textarea><br />
+                </div><br/>
+                <button id="add_contact">Save Contact</button>
+                <button id="Contacts">contacts</button><br/><br/>
+                <contacts id="con"></contacts><br/>
             </div>
-            <br/><br/><br/><br/>
-            <div class="col-xs-8">
-                <h3>Login</h3>
-                <div class="">
-                    <loginmsg></loginmsg>
-                    <label for="email">Email:</label><br />
-                    <input id="lemail" class="input" name="username" type="email" /><br />
-                </div><br/>
-                <div class="">
-                    <label for="password">Password:</label><br />
-                    <input id="lpassword" class="input" name="password" type="password"></textarea><br />
-                </div><br/>
-                <button id="login_">Login</button>
+            <script src="/public/jquery.js"></script>
+            <script src="/public/script.js"></script>
+</body>
 
-            </div>
-        </div>
-    </div>
-    <div id="show">
-        <button id="logout">Logout</button><br/><br/>
-        <div class="">
-
-            <label for="addfirstname">First name:</label><br />
-            <input id="con_first_name" class="input" name="first_name" type="text" value="" /><br />
-        </div><br/>
-        <div class="">
-            <label for="con_last_name">Last name:</label><br />
-            <input id="con_last_name" class="input" name="last_name" type="text" value="" /><br />
-        </div><br/>
-        <div class="">
-            <label for="con_email">Your email:</label><br />
-            <input id="con_email" class="input" name="email" type="email"></textarea><br />
-        </div><br/>
-        <div class="">
-            <label for="con_mobile">Mobile</label><br />
-            <input id="con_mobile" class="input" name="mobile" type="text"></textarea><br />
-        </div><br/>
-        <button id="add_contact">Save Contact</button>
-
-        <button id="Contacts">contacts</button><br/><br/>
-        <contacts id="con"></contacts><br/>
-
-    </div>
-    <script src="/public/jquery.js"></script>
-    <script src="/public/script.js"></script>
-    </body>
-
-    </html>
+</html>

@@ -20,14 +20,13 @@ $(function () {
             },
             statusCode: {
                 500: function () {
-                    console.log('500');
                     $("#show").hide();
                     $("#hide").show();
                 }
             }
         });
     });
-    // logout 
+    // logout
     $('#logout').on('click', function () {
         console.log('logout');
         $.ajax({
@@ -53,10 +52,10 @@ $(function () {
                 response.data.forEach(function (data) {
                     contacts.append('\
                              ' + data.first_name + ' ' + data.last_name + '<br/>\
-                            <h3 id="email"> '+ data.email + '</h3><br/>\
-                             '+ data.mobile + '<br/>\
+                            <h3 id="email"> ' + data.email + '</h3><br/>\
+                             ' + data.mobile + '<br/>\
                              <br/>\
-                                <button id="delete-data" value="'+ data._id + '">DELETE</button>\
+                                <button id="delete-data" value="' + data._id + '">DELETE</button>\
                                <br/>\
                     ');
                 });
@@ -94,10 +93,14 @@ $(function () {
             url: '/user/ragister',
             contentType: 'application/json',
             method: 'POST',
-            data: JSON.stringify(data),//$("#register_form").serialize(),
+            data: JSON.stringify(data), //$("#register_form").serialize(),
             success: function (response) {
                 console.log(response);
-
+                $('#first_name').val("");
+                $('#last_name').val("");
+                $('#mobile').val("");
+                $('#email').val("");
+                $('#password').val("");
             }
 
         });
@@ -117,7 +120,7 @@ $(function () {
                 url: '/user/login',
                 contentType: 'application/json',
                 method: 'POST',
-                data: JSON.stringify(data),//$("#register_form").serialize(),
+                data: JSON.stringify(data), //$("#register_form").serialize(),
                 success: function (response) {
                     console.log(response);
                     if (response == "fail") {
@@ -144,8 +147,7 @@ $(function () {
             });
             $('#lemail').val("");
             $('#lpassword').val("");
-        }
-        else {
+        } else {
             var loginmsg = $('loginmsg');
             loginmsg.html('');
             var msg = "password|| username can't be blank<br/>";
@@ -166,7 +168,7 @@ $(function () {
             url: '/app/add',
             contentType: 'application/json',
             method: 'POST',
-            data: JSON.stringify(data),//$("#register_form").serialize(),
+            data: JSON.stringify(data), //$("#register_form").serialize(),
             success: function (response) {
                 $('#Contacts').click();
                 console.log(response);
@@ -180,8 +182,11 @@ $(function () {
     });
     //validate login 
     function validate_login(data) {
-        if (data.username !== "" && data.password !== "") { return true; }
-        else { return false };
+        if (data.username !== "" && data.password !== "") {
+            return true;
+        } else {
+            return false
+        };
     }
     // validate ragister
     function validate_ragister(data) {

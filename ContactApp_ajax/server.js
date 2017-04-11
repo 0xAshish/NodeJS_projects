@@ -1,7 +1,7 @@
 'use strict';
 var express = require('express');
-var passport = require('passport')
-    , LocalStrategy = require('passport-local').Strategy;
+var passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy;
 var app = express();
 var assert = require('assert');
 var ObjectId = require('mongodb').ObjectId;
@@ -11,12 +11,14 @@ var bodyParser = require('body-parser');
 var session = require('express-session')
 
 
-app.use(session({ secret: 'Secret1' }));
+app.use(session({
+    secret: 'Secret1'
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(bodyParser.json()); // support json encoded bodies
-//app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 //database schema 
 var Schema = mongoose.Schema;
@@ -60,19 +62,23 @@ function validate(req, res, next) {
 passport.use(new LocalStrategy(
     function (username, password, done) {
         console.log("" + username + " " + password);
-        User.findOne({ 'email': username, 'password': password }, (err, data) => {
+        User.findOne({
+            'email': username,
+            'password': password
+        }, (err, data) => {
             if (data != null && data !== undefined) {
                 console.log(data);
                 console.log("Done");
                 //req.session.data=data['_id'];
                 return done(null, data);
             } else {
-                return done(null, false, { message: 'Incorrect password.' });
+                return done(null, false, {
+                    message: 'Incorrect password.'
+                });
             }
         });
 
-    })
-);
+    }));
 
 passport.serializeUser(function (data, cb) {
     console.log("user_c" + data);
@@ -81,26 +87,17 @@ passport.serializeUser(function (data, cb) {
 
 passport.deserializeUser(function (id, cb) {
     console.log("deserializeUser");
-    User.findOne({ '_id': id }, function (err, user) {
-        if (err) { return cb(err); }
+    User.findOne({
+        '_id': id
+    }, function (err, user) {
+        if (err) {
+            return cb(err);
+        }
         console.log("user" + user);
         cb(null, user);
     });
 });
 
-//middleware 
-/*
-app.use('/',(req,res,next)=>{
-    if(req.isAuthenticated){
-        console.log("not allowed");
-        res.redirect('/app/users');
-    }else{
-        console.log("allowed");
-        next();
-    }
-    
-})
-*/
 app.use('/user/ragister', (req, res, next) => {
 
     var first_name = req.query.first_name;
@@ -109,7 +106,9 @@ app.use('/user/ragister', (req, res, next) => {
     var mobile = req.query.mobile;
     var password = req.query.password;
     if (first_name !== "" && last_name !== "" && email !== "" && password !== "") {
-        User.findOne({ 'email': email }, (err, data) => {
+        User.findOne({
+            'email': email
+        }, (err, data) => {
             if (data != null && data !== undefined) {
                 console.log(data);
                 console.log("email already exists");
@@ -153,14 +152,18 @@ app.use(bodyParser.json());
 app.get('/app/contacts', validate, function (req, res) {
     //res.send("response");
     var uid = req.session.passport.user;
-    Contacts.find({ 'uid': uid }, function (err, docs) {//
+    Contacts.find({
+        'uid': uid
+    }, function (err, docs) { //
         if (!err) {
             var data = {}
             var i = 0;
             console.log("length " + docs.length);
 
             console.log("dataaa" + docs);
-            res.send({ data: docs });
+            res.send({
+                data: docs
+            });
         } else {
             console.log("data not found");
             res.send(500);
@@ -193,7 +196,9 @@ app.delete('/app/delete/:id', validate, (req, res) => {
     var id = req.params.id;
     //var uid = req.session.passport.user;
     console.log("id->>" + id);
-    Contacts.findOneAndRemove({ "_id": id }, function (err, data) {
+    Contacts.findOneAndRemove({
+        "_id": id
+    }, function (err, data) {
         console.log(data);
         if (err || !data) {
             req.session.data1 = "Please check your email ";
@@ -252,5 +257,5 @@ app.get('/app/logout', function (req, res) {
 });
 
 app.listen(3005, function () {
-    console.log('server listening on: 3000 Press Ctrl-C to Exit');
+    console.log('server listening on: 3005 Press Ctrl-C to Exit');
 });
