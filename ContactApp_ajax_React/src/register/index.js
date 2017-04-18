@@ -1,11 +1,7 @@
 import {Component} from 'react';
 import register_form from './register_form.js';
 import axios from 'axios'
-// let http= axios.create({
-//   baseURL: 'http://localhost:3005/',
-//   timeout: 1000,
-//   headers: {'X-Custom-Header': 'foobar'}
-// });
+
 class register extends Component {
   constructor(props) {
     super(props);

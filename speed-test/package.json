@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "ashish",
   "license": "ISC",
   "dependencies": {
     "node-notifier": "^5.0.2"

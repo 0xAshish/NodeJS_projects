@@ -14,15 +14,7 @@ class login extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   
-}
-componentWillMount(){
-  this.isLogin=localStorage.getItem('islogin')
-    console.log('islogin ',this.isLogin)
-    if(this.isLogin){
-    this.props.transition.router.stateService.go('contact')
-    }
-}
- 
+} 
   handleChange(event) {
     const target = event.target;
     const value = target.value;

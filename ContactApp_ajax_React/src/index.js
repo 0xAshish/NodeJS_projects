@@ -7,52 +7,46 @@ import Home from './home'
 import App from './app'
 import Contact from './contact'
 import addContact from './addContact'
-import editContact from './editContact'
-import  {UIRouterReact,UIRouter,UIView,servicesPlugin, pushStateLocationPlugin} from 'ui-router-react';
+import { UIRouterReact, UIRouter, UIView, servicesPlugin, pushStateLocationPlugin } from 'ui-router-react';
 // import {visualizer} from 'ui-router-visualizer';
 
 // define your states
 const states = [
   {
-  name: 'home',
-  url: '/home',
-  component: Home,
-   children: ['login','register']  
-},
+    name: 'home',
+    url: '/home',
+    component: Home,
+    children: ['login', 'register']
+  },
   {
-  name: 'app',
-  url: '/app',
-  component: App,
-   children: ['addContact','contact','editContact']
-  
-},
-{
-  name: 'login',
-  url: '/login',
-  component: Login,
-  parent:'home'
-},{
-  name: 'register',
-  url: '/register',
-  component: Register,
-  parent:'home'
-},{
-  name: 'contact',
-  url: '/contact',
-  component: Contact,
-  parent:'app',
- 
-},{
-  name: 'addContact',
-  url: '/add',
-  component: addContact,
-  parent:'app'
-},{
-  name: 'editContact',
-  url: '/edit/:id',
-  component: editContact,
-  parent:'app'
-}
+    name: 'app',
+    url: '/app',
+    component: App,
+    children: ['addContact', 'contact', 'editContact']
+
+  },
+  {
+    name: 'login',
+    url: '/login',
+    component: Login,
+    parent: 'home'
+  }, {
+    name: 'register',
+    url: '/register',
+    component: Register,
+    parent: 'home'
+  }, {
+    name: 'contact',
+    url: '/contact',
+    component: Contact,
+    parent: 'app',
+
+  }, {
+    name: 'addContact',
+    url: '/add',
+    component: addContact,
+    parent: 'app'
+  }
 ];
 
 
@@ -73,10 +67,9 @@ Router.urlRouter.otherwise(() => "/home");
 Router.start();
 // Setup the state visualizer
 // visualizer(Router);
-// select your plugins
 ReactDOM.render(
   <UIRouter router={Router}>
-    <UIView/>
+    <UIView />
   </UIRouter>,
   document.getElementById('root')
 );

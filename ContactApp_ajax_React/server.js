@@ -1,14 +1,14 @@
 'use strict';
-var express = require('express');
-var passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy;
-var app = express();
-var assert = require('assert');
-var ObjectId = require('mongodb').ObjectId;
-var mongoose = require('mongoose');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session')
+var express = require('express'),
+    passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
+    app = express(),
+    assert = require('assert'),
+    ObjectId = require('mongodb').ObjectId,
+    mongoose = require('mongoose'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    session = require('express-session');
 
 
 app.use(session({
@@ -57,13 +57,12 @@ mongoose.connect('mongodb://localhost/Contact', function (error) {
 
 // //passportjs validation of user
 function validate(req, res, next) {
-    next()
     // console.log(req.session.passport.user);
-    // if (req.isAuthenticated()) {
-    //     next();
-    // } else {
-    //     res.redirect('/');
-    // }
+    if (req.isAuthenticated()) {
+        next();
+    } else {
+        res.redirect('/');
+    }
 }
 
 passport.use(new LocalStrategy(
