@@ -74,8 +74,6 @@ passport.use(new LocalStrategy(
         }, (err, data) => {
             if (data != null && data !== undefined) {
                 console.log(data);
-                console.log("Done");
-                //req.session.data=data['_id'];
                 return done(null, data);
             } else {
                 return done(null, false, {
