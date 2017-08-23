@@ -11,7 +11,7 @@ module.exports = function temp(self) {
     listContact = contacts.map((contact, i) => {
       return (
         <ListGroupItem bsStyle="info"
-          key={contact._id}>{contact.first_name + ' ' + contact.last_name + ' Email:' + contact.email}
+          key={contact._id}>{contact.first_name + ' ' + contact.last_name + ' |  Email:' + contact.email}
           <span className="pull-right">
             <Button data-id={i} onClick={self.edit} bsStyle="info" bsSize="small">
               <Glyphicon glyph="edit" />

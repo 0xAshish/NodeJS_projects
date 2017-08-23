@@ -197,6 +197,21 @@ app.post('/app/add', validate, function (req, res) {
         }
     });
 });
+//this 
+app.post('/app/compare', validate, function (req, res) {
+    let data_type = req.body.type;
+    let data_first= req.body.first;
+    let data_sec= req.body.sec;
+        if (data_first&&data_sec) {
+          let data=0;
+            if (data_first.toString() < data_sec.toString()) data=-1;
+            if (data_first.toString() > data_sec.toString()) data=1;
+            res.json({data:data});
+        } else {
+            console.log("error in data");
+            res.send('No data');
+        }
+});
 app.delete('/app/contacts/:id', validate, (req, res) => {
     var id = req.params.id;
     var uid = req.session.passport.user;

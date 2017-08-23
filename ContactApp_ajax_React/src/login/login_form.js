@@ -7,7 +7,7 @@ return (<div  className="form-signin" >
    <h2 className="form-signin-heading">Login</h2> 
     <form  onSubmit={this1.handleSubmit}>           
       <FormGroup controlId="email">
-      <ControlLabel>Name</ControlLabel>
+      <ControlLabel>Email</ControlLabel>
       <FormControl type="email"  onChange={this1.handleChange} placeholder="Example@abc.com" value={this1.state.email} name="username" />
     </FormGroup>
        <FormGroup controlId="password">
