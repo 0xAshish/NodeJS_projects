@@ -9,7 +9,9 @@ class login extends Component {
     
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      array: ["2", "3223342", "232", "32423", "22"]
+      // array: ["ashisasdasdas435435h", "4353454sfsonemoreguy", "somemore23423423", "asdas324344512", "afsdf767^&*^*sfada", "afsdf767^&*^*sfadasa"]
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,7 +26,39 @@ class login extends Component {
       [name]: value
     });
   }
+  componentWillMount() {
+    console.log('componentWillMount')
+   // this.getData();
+    console.log(this.state.array);
+    (async function loop(array) {
+      for (let i = 0; i < array.length; i++) {
+        for (let j = i + 1; j < array.length; j++) {
+          let first = array[i];
+          let sec = array[j];
+          await axios.post(`/app/compare`, {
+              first,
+              sec,
+              type: ""
+            })
+            .then(res => {
+              console.log('data', res.data.data)
+              if (res.data.data > 0) {
+                console.log("-1");
+                let temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+              }
 
+            }).catch(err => {
+              console.log(err)
+            });
+
+        }
+      }
+      console.log(array);
+    })(this.state.array);
+
+  }
   handleSubmit(event) {
      axios.post(`/user/login`,this.state)
       .then(res => {

@@ -49,34 +49,34 @@ class contact extends Component {
   componentWillMount() {
     console.log('componentWillMount')
     this.getData();
-    console.log(this.state.array);
-    (async function loop(array) {
-      for (let i = 0; i < array.length; i++) {
-        for (let j = i + 1; j < array.length; j++) {
-          let first = array[i];
-          let sec = array[j];
-          await axios.post(`/app/compare`, {
-              first,
-              sec,
-              type: ""
-            })
-            .then(res => {
-              console.log('data', res.data.data)
-              if (res.data.data > 0) {
-                console.log("-1");
-                let temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-              }
+    // console.log(this.state.array);
+    // (async function loop(array) {
+    //   for (let i = 0; i < array.length; i++) {
+    //     for (let j = i + 1; j < array.length; j++) {
+    //       let first = array[i];
+    //       let sec = array[j];
+    //       await axios.post(`/app/compare`, {
+    //           first,
+    //           sec,
+    //           type: ""
+    //         })
+    //         .then(res => {
+    //           console.log('data', res.data.data)
+    //           if (res.data.data > 0) {
+    //             console.log("-1");
+    //             let temp = array[i];
+    //             array[i] = array[j];
+    //             array[j] = temp;
+    //           }
 
-            }).catch(err => {
-              console.log(err)
-            });
+    //         }).catch(err => {
+    //           console.log(err)
+    //         });
 
-        }
-      }
-      console.log(array);
-    })(this.state.array);
+    //     }
+    //   }
+    //   console.log(array);
+    // })(this.state.array);
 
   }
 

@@ -198,7 +198,7 @@ app.post('/app/add', validate, function (req, res) {
     });
 });
 //this 
-app.post('/app/compare', validate, function (req, res) {
+app.post('/app/compare', function (req, res) {
     let data_type = req.body.type;
     let data_first= req.body.first;
     let data_sec= req.body.sec;
